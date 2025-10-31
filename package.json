@@ -1,0 +1,35 @@
+{
+  "name": "nodejs-security-audit-demo",
+  "version": "1.0.0",
+  "description": "Node.js/Express application for security vulnerability testing and demonstration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "npm audit && node scan.js",
+    "audit": "npm audit --json > npm_audit_report.json",
+    "scan": "node scan.js",
+    "security-check": "bash run_test.sh"
+  },
+  "keywords": [
+    "security",
+    "audit",
+    "vulnerability",
+    "express",
+    "nodejs"
+  ],
+  "author": "Security Audit Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
