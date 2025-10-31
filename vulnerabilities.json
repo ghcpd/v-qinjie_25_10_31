@@ -1,0 +1,74 @@
+[
+  {
+    "id": "secret.hardcoded.api_key",
+    "type": "secret",
+    "severity": "high",
+    "description": "Hardcoded API key present in insecure_app.js",
+    "file": "insecure_app.js",
+    "line": 15,
+    "remediation": "Remove from source, load via environment variable (process.env.API_KEY)."
+  },
+  {
+    "id": "secret.hardcoded.jwt_secret",
+    "type": "secret",
+    "severity": "high",
+    "description": "Hardcoded JWT secret present in insecure_app.js",
+    "file": "insecure_app.js",
+    "line": 16,
+    "remediation": "Store secret in environment (.env) and rotate regularly."
+  },
+  {
+    "id": "secret.hardcoded.db_pass",
+    "type": "secret",
+    "severity": "high",
+    "description": "Hardcoded database password present in insecure_app.js",
+    "file": "insecure_app.js",
+    "line": 19,
+    "remediation": "Use environment variable DB_PASS; never commit credentials."
+  },
+  {
+    "id": "injection.sql_concat.login_query",
+    "type": "injection",
+    "severity": "high",
+    "description": "SQL query constructed via string concatenation with user-controlled input (username, password).",
+    "file": "insecure_app.js",
+    "line": 36,
+    "remediation": "Use parameterized query: SELECT * FROM users WHERE username = ? AND password = ?" 
+  },
+  {
+    "id": "config.cors_permissive",
+    "type": "misconfiguration",
+    "severity": "medium",
+    "description": "CORS configuration allows all origins (*)",
+    "file": "insecure_app.js",
+    "line": 26,
+    "remediation": "Restrict origins to trusted domains using a whitelist function."
+  },
+  {
+    "id": "leak.secrets_in_response",
+    "type": "data-leakage",
+    "severity": "high",
+    "description": "API response includes API key and JWT secret after login",
+    "file": "insecure_app.js",
+    "line": 43,
+    "remediation": "Never return secrets. Return a JWT token or session identifier only."
+  },
+  {
+    "id": "logging.debug_leak",
+    "type": "information-exposure",
+    "severity": "low",
+    "description": "Console error logs entire error object in production",
+    "file": "insecure_app.js",
+    "line": 39,
+    "remediation": "Log sanitized error codes; disable verbose logging in production."
+  },
+  {
+    "id": "code.dynamic_exec.eval",
+    "type": "code-execution",
+    "severity": "critical",
+    "description": "Commented example uses eval to run arbitrary code",
+    "file": "insecure_app.js",
+    "line": 51,
+    "remediation": "Remove eval usage. Implement specific server-side operations instead of executing arbitrary code."
+  }
+]
