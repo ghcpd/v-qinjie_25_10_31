@@ -1,0 +1,16 @@
+{
+  "name": "node-security-audit-demo",
+  "version": "1.0.0",
+  "description": "Sample Express app with intentional security flaws for auditing exercises.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "scan": "node scan.js",
+    "test": "npm audit"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
