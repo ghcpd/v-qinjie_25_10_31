@@ -1,0 +1,24 @@
+{
+  "name": "security-audit-app",
+  "version": "1.0.0",
+  "description": "Sample Node.js/Express service used for security auditing exercises.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "scan": "node scan.js",
+    "audit": "npm audit --audit-level=moderate || true",
+    "test": "npm run scan -- --ci"
+  },
+  "keywords": [
+    "express",
+    "security",
+    "audit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
