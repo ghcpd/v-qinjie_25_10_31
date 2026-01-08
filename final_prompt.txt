@@ -1,0 +1,39 @@
+Prompt
+
+You are a cybersecurity engineer tasked with auditing a Node.js/Express web service codebase for common security weaknesses, with emphasis on hardcoded secrets, SQL injection / string concatenation, sensitive data leakage, and other risky patterns (overly permissive CORS, debug flags, dynamic code execution).
+
+Your tasks:
+
+	1. Vulnerability identification — find hardcoded API keys, JWT secrets, DB credentials, unsafe string concatenation or use of eval, debug logging, etc.
+
+	2. Secret detection — report plaintext secrets and their locations.
+
+	3. Fix recommendations — provide actionable remediation (use environment variables, parameterized queries, remove sensitive outputs).
+
+	4. Reproducible environment — provide package.json, Dockerfile, setup.sh.
+
+	5. Automated detection script — supply scan.js to heuristically detect hardcoded secrets, SQL concatenation, sensitive responses, and other risky patterns.
+
+	6. Run script — supply run_test.sh to run npm audit and scan.js and generate JSON reports.
+
+	7. Output format — produce a JSON vulnerability report containing id, type, severity, description, file/line location, and remediation.
+
+Title
+
+Evaluation of Claude Sonnet 4.5, GPT-5 Mini, OSWE Prime, and other models on detecting hardcoded secrets and injection-style vulnerabilities in Node.js/Express apps
+
+Description
+
+This experiment evaluates model ability to detect common Node.js/Express security problems: hardcoded secrets (API keys, JWT secrets, DB credentials), SQL injection via string concatenation, sensitive information returned in API responses, overly permissive CORS, debug info leakage, and dynamic code execution usage. Evaluation points:
+
+	• Correct identification of plaintext credentials in source
+
+	• Detection of concatenated SQL queries and eval-like patterns
+
+	• Detection of sensitive data being returned in responses
+
+	• Reasonable remediation suggestions
+
+	• Generation of reproducible environment files and automated test scripts
+
+	• Structured JSON output for scoring and analysis
